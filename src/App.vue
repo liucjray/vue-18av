@@ -1,10 +1,9 @@
 <template>
   <div id="app">
-    
     <categories />
     <collections />
     <videos />
-
+    <video1 />
   </div>
 </template>
 
@@ -12,6 +11,7 @@
 import categories from "./components/categories.vue";
 import collections from "./components/collections.vue";
 import videos from "./components/videos.vue";
+import video1 from "./components/video.vue";
 
 export default {
   name: "App",
@@ -19,10 +19,10 @@ export default {
     categories,
     collections,
     videos,
+    video1
   },
   mounted() {},
 };
-
 </script>
 
 <style>
