@@ -1,0 +1,101 @@
+{
+    "success": true,
+    "response": {
+        "has_more": true,
+        "total_collections": 120,
+        "current_offset": 0,
+        "limit": 10,
+        "collections": [
+            {
+                "id": "1",
+                "title": "三上悠亜",
+                "keyword": "三上悠亜",
+                "cover_url": "https://static-clst.avgle.com/videos/tmb/19944/1.jpg",
+                "total_views": 121219550,
+                "video_count": 311,
+                "collection_url": "https://avgle.com/c/三上悠亜"
+            },
+            {
+                "id": "2",
+                "title": "高橋しょう子",
+                "keyword": "高橋しょう子",
+                "cover_url": "https://static-clst.avgle.com/videos/tmb/236/1.jpg",
+                "total_views": 45805133,
+                "video_count": 129,
+                "collection_url": "https://avgle.com/c/高橋しょう子"
+            },
+            {
+                "id": "3",
+                "title": "波多野結衣",
+                "keyword": "波多野結衣",
+                "cover_url": "https://static-clst.avgle.com/videos/tmb/2343/1.jpg",
+                "total_views": 90441213,
+                "video_count": 962,
+                "collection_url": "https://avgle.com/c/波多野結衣"
+            },
+            {
+                "id": "4",
+                "title": "橋本ありな",
+                "keyword": "橋本ありな",
+                "cover_url": "https://static-clst.avgle.com/videos/tmb/918/1.jpg",
+                "total_views": 78030813,
+                "video_count": 240,
+                "collection_url": "https://avgle.com/c/橋本ありな"
+            },
+            {
+                "id": "5",
+                "title": "椎名そら",
+                "keyword": "椎名そら",
+                "cover_url": "https://static-clst.avgle.com/videos/tmb/3612/1.jpg",
+                "total_views": 50736701,
+                "video_count": 334,
+                "collection_url": "https://avgle.com/c/椎名そら"
+            },
+            {
+                "id": "6",
+                "title": "上原亜衣",
+                "keyword": "上原亜衣",
+                "cover_url": "https://static-clst.avgle.com/videos/tmb/1289/1.jpg",
+                "total_views": 38391272,
+                "video_count": 285,
+                "collection_url": "https://avgle.com/c/上原亜衣"
+            },
+            {
+                "id": "7",
+                "title": "丘咲エミリ",
+                "keyword": "丘咲エミリ",
+                "cover_url": "https://static-clst.avgle.com/videos/tmb/11099/1.jpg",
+                "total_views": 9964561,
+                "video_count": 87,
+                "collection_url": "https://avgle.com/c/丘咲エミリ"
+            },
+            {
+                "id": "8",
+                "title": "大槻ひびき",
+                "keyword": "大槻ひびき",
+                "cover_url": "https://static-clst.avgle.com/videos/tmb/12338/1.jpg",
+                "total_views": 38865313,
+                "video_count": 371,
+                "collection_url": "https://avgle.com/c/大槻ひびき"
+            },
+            {
+                "id": "9",
+                "title": "凰かなめ",
+                "keyword": "凰かなめ",
+                "cover_url": "https://static-clst.avgle.com/videos/tmb/243/1.jpg",
+                "total_views": 11962817,
+                "video_count": 52,
+                "collection_url": "https://avgle.com/c/凰かなめ"
+            },
+            {
+                "id": "10",
+                "title": "愛音まりあ",
+                "keyword": "愛音まりあ",
+                "cover_url": "https://static-clst.avgle.com/videos/tmb/3016/1.jpg",
+                "total_views": 14861717,
+                "video_count": 98,
+                "collection_url": "https://avgle.com/c/愛音まりあ"
+            }
+        ]
+    }
+}

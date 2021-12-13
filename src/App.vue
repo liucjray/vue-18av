@@ -1,16 +1,24 @@
 <template>
   <div id="app">
+    
     <categories />
+    <collections />
+    <videos />
+
   </div>
 </template>
 
 <script>
 import categories from "./components/categories.vue";
+import collections from "./components/collections.vue";
+import videos from "./components/videos.vue";
 
 export default {
   name: "App",
   components: {
     categories,
+    collections,
+    videos,
   },
   mounted() {},
 };

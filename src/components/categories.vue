@@ -13,13 +13,13 @@
   </thead>
   <tbody>
     <tr v-for="category in categories" :key="category.CHID">
-      <td>CHID</td>
-      <td>name</td>
-      <td>slug</td>
-      <td>total_videos</td>
-      <td>shortname</td>
-      <td>category_url</td>
-      <td>cover_url</td>
+      <td>{{category.CHID}}</td>
+      <td>{{category.name}}</td>
+      <td>{{category.slug}}</td>
+      <td>{{category.total_videos}}</td>
+      <td>{{category.shortname}}</td>
+      <td>{{category.category_url}}</td>
+      <td>{{category.cover_url}}</td>
     </tr>
   </tbody>
 </table>
@@ -27,7 +27,6 @@
 
 <script>
 import axios from "axios";
-
 export default {
   name: "categories",
   data() {
@@ -35,19 +34,20 @@ export default {
       categories: [],
     };
   },
-  methods() {
-    this.categories = get_categories();
+  beforeMount() {
+    this.get_categories();
+  },
+  methods: {
+    get_categories() {
+      axios
+        .get("https://api.avgle.com/v1/categories")
+        .then(({ data }) => {
+          this.categories = data.response.categories;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
   },
 };
-
-async function get_categories() {
-  try {
-    const get = await axios.get("https://api.avgle.com/v1/categories");
-    const { data } = get;
-    console.log(data.response.categories);
-    return data.response.categories;
-  } catch (error) {
-    throw new Error(error);
-  }
-}
 </script>
