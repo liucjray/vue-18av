@@ -5,7 +5,7 @@
       type="card"
       tabPosition="left"
       v-model="activeCHID"
-      @tab-click="switch_category"
+      @tab-click="switchCategory"
     >
       <el-tab-pane
         v-for="category in categories"
@@ -13,7 +13,14 @@
         :label="category.shortname"
         :name="category.CHID"
       >
-        <el-table style="width: 50%" :data="videos">
+        <el-table
+          style="width: 50%"
+          :data="videos"
+          :loading="isLoading"
+          element-loading-text="拼命加载中"
+          element-loading-spinner="el-icon-loading"
+          element-loading-background="rgba(0, 0, 0, 0.8)"
+        >
           <el-table-column prop="preview_url" label="預覽圖">
             <template slot-scope="scope">
               <a target="_blank" :href="scope.row.video_url">
@@ -41,34 +48,38 @@ export default {
   data() {
     return {
       activeCHID: "1",
+      isLoading: false,
       categories: [],
       videos: [],
     };
   },
   beforeMount() {
     // 取得分類
-    this.get_categories();
+    this.getCategories();
     // 預設第一個分類
-    this.switch_category(this.activeCHID);
+    this.switchCategory(this.activeCHID);
   },
   methods: {
-    switch_category() {
-      this.get_videos(this.activeCHID);
+    switchCategory() {
+      this.getVideos(this.activeCHID);
     },
-    get_categories() {
+    getCategories() {
       axios
         .get("https://api.avgle.com/v1/categories")
         .then(({ data }) => {
+          this.isLoading = true;
           this.categories = data.response.categories;
         })
         .catch((error) => {
           console.error(error);
         });
     },
-    get_videos(CHID) {
+    getVideos(CHID) {
+      this.isLoading = true;
       axios
         .get(`https://api.avgle.com/v1/videos/0?c=${CHID}&limit=8`)
         .then(({ data }) => {
+          this.isLoading = data.response.success != true;
           this.videos = data.response.videos;
         })
         .catch((error) => {
