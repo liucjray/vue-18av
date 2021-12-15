@@ -35,7 +35,7 @@
           <el-table-column prop="preview_url" label="預覽圖">
             <template slot-scope="scope">
               <a target="_blank" :href="scope.row.video_url">
-                <img :src="scope.row.preview_url" height="80" />
+                <img :src="scope.row.preview_url" height="80" content="no-referrer" />
               </a>
             </template>
           </el-table-column>
