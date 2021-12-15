@@ -17,6 +17,7 @@
           style="width: 50%"
           background
           layout="prev, pager, next"
+          :page-size="videosLimit"
           :total="videosTotal"
           @current-change="vidoePageClick"
           @prev-click="videosPrevClick"
