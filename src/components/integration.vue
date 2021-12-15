@@ -35,7 +35,11 @@
           <el-table-column prop="preview_url" label="預覽圖">
             <template slot-scope="scope">
               <a target="_blank" :href="scope.row.video_url">
-                <img :src="scope.row.preview_url" height="80" content="no-referrer" />
+                <img
+                  :src="scope.row.preview_url"
+                  height="80"
+                  content="no-referrer"
+                />
               </a>
             </template>
           </el-table-column>
@@ -47,7 +51,7 @@
           <el-table-column prop="duration" label="時長">
             <template slot-scope="scope">
               <el-button icon="el-icon-timer" effect="dark">
-                {{ scope.row.duration }}
+                {{ transformHumanTime(scope.row.duration) }}
               </el-button>
             </template>
           </el-table-column>
@@ -87,6 +91,7 @@ export default {
       this.videosCurrentPage = 0;
       this.getVideos();
     },
+    // 更新 categories 資料
     getCategories() {
       this.isLoading = true;
       axios
@@ -99,10 +104,11 @@ export default {
           console.error(error);
         });
     },
+    // 動態更新 videos 資料
     getVideos() {
       this.isLoading = true;
       let url = `https://api.avgle.com/v1/videos/${this.videosCurrentPage}?c=${this.activeCHID}&limit=${this.videosLimit}`;
-      console.log(url);
+      // console.log(url);
       axios
         .get(url)
         .then(({ data }) => {
@@ -114,23 +120,27 @@ export default {
           console.error(error);
         });
     },
+    // 跳轉上頁
     videosPrevClick() {
       this.videosCurrentPage -= 1;
       this.getVideos();
     },
+    // 跳轉下頁
     videosNextClick() {
       this.videosCurrentPage += 1;
       this.getVideos();
     },
+    // 跳轉頁碼
     vidoePageClick(page) {
       this.videosCurrentPage = page - 1;
       this.getVideos();
     },
-  },
-  computed: {
-    transformHumanTIme(seconds) {
-      return seconds;
+    // 將秒數替換成 時時:分分:秒秒 格式
+    transformHumanTime(seconds) {
+      let s = new Date(seconds * 1000).toISOString().substr(11, 8);
+      return s;
     },
   },
+  computed: {},
 };
 </script>
