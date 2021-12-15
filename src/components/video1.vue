@@ -23,23 +23,23 @@
   </thead>
   <tbody>
     <tr>
-      <td>{{video.title}}</td>
-      <td>{{video.keyword}}</td>
-      <td>{{video.channel}}</td>
-      <td>{{video.duration}}</td>
-      <td>{{video.framerate}}</td>
-      <td>{{video.hd}}</td>
-      <td>{{video.addtime}}</td>
-      <td>{{video.viewnumber}}</td>
-      <td>{{video.likes}}</td>
-      <td>{{video.dislikes}}</td>
-      <td>{{video.video_url}}</td>
-      <td>{{video.embedded_url}}</td>
-      <td>{{video.preview_url}}</td>
-      <td>{{video.preview_video_url}}</td>
-      <td>{{video.private}}</td>
-      <td>{{video.vid}}</td>
-      <td>{{video.uid}}</td>
+      <td>{{video1.title}}</td>
+      <td>{{video1.keyword}}</td>
+      <td>{{video1.channel}}</td>
+      <td>{{video1.duration}}</td>
+      <td>{{video1.framerate}}</td>
+      <td>{{video1.hd}}</td>
+      <td>{{video1.addtime}}</td>
+      <td>{{video1.viewnumber}}</td>
+      <td>{{video1.likes}}</td>
+      <td>{{video1.dislikes}}</td>
+      <td>{{video1.video_url}}</td>
+      <td>{{video1.embedded_url}}</td>
+      <td>{{video1.preview_url}}</td>
+      <td>{{video1.preview_video_url}}</td>
+      <td>{{video1.private}}</td>
+      <td>{{video1.vid}}</td>
+      <td>{{video1.uid}}</td>
     </tr>
   </tbody>
 </table>
@@ -51,7 +51,7 @@ export default {
   name: "video",
   data() {
     return {
-      video: [],
+      video1: [],
     };
   },
   beforeMount() {
@@ -62,7 +62,7 @@ export default {
       axios
         .get("https://api.avgle.com/v1/video/608340")
         .then(({ data }) => {
-          this.video = data.response.video;
+          this.video1 = data.response.video;
         })
         .catch((error) => {
           console.error(error);
