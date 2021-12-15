@@ -40,7 +40,7 @@ export default {
   name: "categories",
   data() {
     return {
-      activeCHID: 1,
+      activeCHID: "1",
       categories: [],
       videos: [],
     };
@@ -49,7 +49,6 @@ export default {
     // 取得分類
     this.get_categories();
     // 預設第一個分類
-    this.activeCHID = 1;
     this.switch_category(this.activeCHID);
   },
   methods: {
