@@ -2,8 +2,9 @@
   <div>
     <el-tabs
       style="100%"
+      type="card"
       tabPosition="left"
-      v-model="tabIdx"
+      v-model="activeCHID"
       @tab-click="switch_category"
     >
       <el-tab-pane
@@ -12,23 +13,20 @@
         :label="category.shortname"
         :name="category.CHID"
       >
-        <el-table style="width: 100%" :data="videos">
+        <el-table style="width: 50%" :data="videos">
           <el-table-column prop="preview_url" label="預覽圖">
             <template slot-scope="scope">
-              <img
-                :src="scope.row.preview_url"
-                referrerpolicy="no-referrer"
-                height="80"
-              />
+              <a target="_blank" :href="scope.row.video_url">
+                <img :src="scope.row.preview_url" height="80" />
+              </a>
             </template>
           </el-table-column>
-          <el-table-column prop="duration" label="時長"> </el-table-column>
-          <el-table-column prop="video_url" label="片源"> </el-table-column>
           <el-table-column
             prop="title"
             label="片名"
-            width="1000px"
+            width="500px"
           ></el-table-column>
+          <el-table-column prop="duration" label="時長"> </el-table-column>
         </el-table>
       </el-tab-pane>
     </el-tabs>
@@ -42,19 +40,21 @@ export default {
   name: "categories",
   data() {
     return {
-      tabIdx: null,
+      activeCHID: 1,
       categories: [],
       videos: [],
     };
   },
   beforeMount() {
+    // 取得分類
     this.get_categories();
-    this.switch_category(1);
+    // 預設第一個分類
+    this.activeCHID = 1;
+    this.switch_category(this.activeCHID);
   },
   methods: {
-    switch_category(CHID) {
-      console.log(CHID);
-      this.get_videos(CHID);
+    switch_category() {
+      this.get_videos(this.activeCHID);
     },
     get_categories() {
       axios
