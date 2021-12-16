@@ -1,29 +1,33 @@
 <template>
   <div id="app">
-    <integration />
-    <!-- <categories /> -->
-    <!-- <collections /> -->
-    <!-- <videos /> -->
-    <!-- <video1 /> -->
+    <h1>Hello App!</h1>
+    <p>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/avgle">Avgle</router-link>
+    </p>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-// import categories from "./components/categories.vue";
-// import collections from "./components/collections.vue";
-// import videos from "./components/videos.vue";
-// import video1 from "./components/video1.vue";
-import integration from "./components/integration.vue";
-
 export default {
   name: "App",
-  components: {
-    // categories,
-    // collections,
-    // videos,
-    // video1,
-    integration,
-  }
+  beforeMount() {
+    // console.log(this.$router);
+  },
+  computed: {
+    home() {
+      return this.$route.params.home;
+    },
+    avgle() {
+      return this.$route.params.home;
+    },
+  },
+  methods: {
+    goBack() {
+      window.history.length > 1 ? this.$router.go(-1) : this.$router.push("/");
+    },
+  },
 };
 </script>
 
